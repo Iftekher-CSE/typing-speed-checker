@@ -10,7 +10,28 @@ body {
     background-position: left top;
     font-family: "Zilla Slab", serif;
 }
-
+.nav-bar {
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    background: linear-gradient(
+        92.49deg,
+        rgba(255, 255, 255, 0.1) 0.18%,
+        rgba(255, 255, 255, 0.05) 99.85%
+    );
+    height: 3em;
+    display: flex;
+    justify-content: space-evenly;
+}
+.nav-bar-item {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: auto;
+    margin-bottom: auto;
+}
 .box-container {
     width: 70%;
     margin: 0 auto;
