@@ -22,7 +22,6 @@ fetch("./texts.json")
 // checks the user typed character and displays accordingly
 const typeController = e => {
     const newLetter = e.key;
-
     // Handle backspace press
     if (newLetter == "Backspace") {
         userText = userText.slice(0, userText.length - 1);
@@ -62,6 +61,7 @@ const validate = key => {
     if (key === questionText[userText.length - 1]) {
         return true;
     }
+    errorCount += 1;
     return false;
 };
 
