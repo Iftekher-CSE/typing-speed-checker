@@ -10,12 +10,16 @@ let userText = "";
 let errorCount = 0;
 let startTime;
 let questionText = "";
+let textLength;
 
 // Load and display question
 fetch("./texts.json")
     .then(res => res.json())
     .then(data => {
         questionText = data[Math.floor(Math.random() * data.length)];
+        textLength = questionText.length;
+        console.log(questionText.length);
+        console.log(textLength);
         question.innerHTML = questionText;
     });
 
@@ -142,3 +146,12 @@ setInterval(() => {
         startTime ? timeSpent : 0
     } seconds`;
 }, 1000);
+
+// Show wpm (5 character = 1 word)
+// const textLength = questionText.length;
+console.log(textLength);
+
+//     document.getElementById("show-wpm").innerHTML = `${
+//         startTime ? timeSpent : 0
+//     } seconds`;
+// }, 1000);
