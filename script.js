@@ -11,15 +11,13 @@ let errorCount = 0;
 let startTime;
 let questionText = "";
 let textLength;
+let wpm;
 
 // Load and display question
 fetch("./texts.json")
     .then(res => res.json())
     .then(data => {
         questionText = data[Math.floor(Math.random() * data.length)];
-        textLength = questionText.length;
-        console.log(questionText.length);
-        console.log(textLength);
         question.innerHTML = questionText;
     });
 
@@ -85,11 +83,17 @@ const gameOver = () => {
     display.innerHTML = "";
     // make it inactive
     display.classList.add("inactive");
+    // calculate wpm (5 character = 1 word)
+    textLength = parseInt(questionText.length);
+    const wordCount = textLength / 5;
+    wpm = wordCount / (timeTaken / 60);
+
     // show result
     resultModal.innerHTML += `
     <h1>Finished!</h1>
-    <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
+    <p>You took: <span class="bold">${timeTaken.toFixed(0)}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
+    <p>Your speed is <span class="bold red">${wpm.toFixed(0)}</span> wpm</p>
     <button onclick="closeModal()">Close</button>
   `;
 

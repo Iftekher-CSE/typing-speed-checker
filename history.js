@@ -15,7 +15,7 @@ function addHistory(questionText, timeTaken, errorCount) {
     histories.appendChild(newRow);
 
     let previousTests = JSON.parse(localStorage.getItem("testHistory")) || [];
-    previousTests.push({ questionText, timeTaken, errorCount });
+    previousTests.push({ questionText, timeTaken, errorCount, wpm });
     localStorage.setItem("testHistory", JSON.stringify(previousTests));
 
     displayHistory();
@@ -31,8 +31,14 @@ function displayHistory() {
 
         newRow.innerHTML = `
   <h3>${test.questionText}</h3>
-  <p>You took: <span class="bold">${test.timeTaken}</span> seconds</p>
+  <p>You took: <span class="bold">${test.timeTaken.toFixed(
+      0
+  )}</span> seconds</p>
     <p>You made <span class="bold red">${test.errorCount}</span> mistakes</p>
+    <p>Your speed is <span class="bold red">${test.wpm.toFixed(
+        0
+    )}</span> wpm</p>
+
   `;
 
         histories.appendChild(newRow);
