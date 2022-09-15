@@ -133,8 +133,50 @@
                         <div class="accordion-body">
                             <strong>Event loop in JS</strong> <br />
 
-                            <code>.accordion-body</code>, though the transition
-                            does limit overflow.
+                            <div style="display: flex">
+                                <div>
+                                    JS execute it's code through event loop
+                                    model. We know that JS is a single thread
+                                    language, that means JS execute code one by
+                                    one, can't execute multiple code at time.
+                                    But in operation we can see that JS execute
+                                    regular
+                                    <code>synchronous</code> task like
+                                    <code>function</code> <code>callBack</code>,
+                                    <code>loop</code> etc. during
+                                    <code>asynchronous</code> task like
+                                    <code>setTimeout</code>,
+                                    <code>setInterval</code> etc. is going on.
+                                    This actually manage through event loop
+                                    process. <br />
+                                    For example, there are three
+                                    <code>console.log</code>. When we run this
+                                    code call stake
+                                    <code>console.log(a)</code> and display
+                                    result 10. when call stake found
+                                    <code>setTimeout()</code>, it sent this
+                                    function to WebAPI for count require 1sec.
+                                    during this count on going in webAPI call
+                                    stake execute
+                                    <code>console.log(b)</code> and display
+                                    result 20. after 1sec
+                                    <code>setTimeout()</code> comes to event
+                                    queue. in this situation
+                                    <strong>event loop</strong> check call
+                                    stake, if there is nothing to execute in
+                                    call stake, <strong>event loop</strong> pass
+                                    <code>setTimeout()</code> function in the
+                                    call stake for execution and display result
+                                    200.
+                                </div>
+                                <div style="width: 150em">
+                                    <img
+                                        class="img-fluid"
+                                        src="eventLoop.gif"
+                                        alt=""
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -151,7 +193,7 @@
                             aria-expanded="false"
                             aria-controls="panelsStayOpen-collapseFour"
                         >
-                            Accordion Item #4
+                            In how many ways we can get undefined in javascript?
                         </button>
                     </h2>
                     <div
@@ -160,20 +202,31 @@
                         aria-labelledby="panelsStayOpen-headingFour"
                     >
                         <div class="accordion-body">
-                            <strong
-                                >This is the third item's accordion
-                                body.</strong
-                            >
-                            It is hidden by default, until the collapse plugin
-                            adds the appropriate classes that we use to style
-                            each element. These classes control the overall
-                            appearance, as well as the showing and hiding via
-                            CSS transitions. You can modify any of this with
-                            custom CSS or overriding our default variables. It's
-                            also worth noting that just about any HTML can go
-                            within the
-                            <code>.accordion-body</code>, though the transition
-                            does limit overflow.
+                            <strong>8 Ways to get undefine</strong> <br />
+                            1. If we want to <code>console.log();</code> a
+                            variable that in not initialized will give an
+                            undefine. <br />
+                            2. If we want to <code>console.log();</code> a
+                            <code>function</code> without explicit return will
+                            give undefine. <br />
+                            3 . If <code>function</code> parameter is not passed
+                            <code>console.log();</code> will return undefine for
+                            that parameter. <br />
+                            4. If <code>return</code> form
+                            <code>function</code> in not explicitly mentioned
+                            will give undefine. <br />
+                            5. If we want to get a <code>property</code> that is
+                            not in the <code>object</code>, will give undefine.
+                            <br />
+                            6. If <code>index</code> number in more than the
+                            <code>array</code> elements, will give undefine.
+                            <br />
+                            7. If we want to get a <b>deleted</b> value from the
+                            <code>array</code> elements will give undefine.
+                            <br />
+                            8. If we set value of a variable as undefine, that
+                            variable will give undefine. [ for example:
+                            <code>let a = undefine;</code> ]
                         </div>
                     </div>
                 </div>
